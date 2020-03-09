@@ -52,7 +52,7 @@ public:
 
   int exec()
   {
-    turtlesim::TurtleFrame frame(nh_);
+    omni_turtlesim::TurtleFrame frame(nh_);
     frame.show();
 
     return QApplication::exec();
