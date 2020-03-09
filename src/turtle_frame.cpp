@@ -38,7 +38,7 @@
 #define DEFAULT_BG_G 0x56
 #define DEFAULT_BG_B 0xff
 
-namespace turtlesim
+namespace omni_turtlesim
 {
 
 TurtleFrame::TurtleFrame(rclcpp::Node::SharedPtr& node_handle, QWidget* parent, Qt::WindowFlags f)
@@ -82,7 +82,7 @@ TurtleFrame::TurtleFrame(rclcpp::Node::SharedPtr& node_handle, QWidget* parent, 
   turtles.append("crystal.png");
   turtles.append("dashing.png");
 
-  QString images_path = (ament_index_cpp::get_package_share_directory("turtlesim") + "/images/").c_str();
+  QString images_path = (ament_index_cpp::get_package_share_directory("omni_turtlesim") + "/images/").c_str();
   for (int i = 0; i < turtles.size(); ++i)
   {
     QImage img;
@@ -96,8 +96,8 @@ TurtleFrame::TurtleFrame(rclcpp::Node::SharedPtr& node_handle, QWidget* parent, 
 
   clear_srv_ = nh_->create_service<std_srvs::srv::Empty>("clear", std::bind(&TurtleFrame::clearCallback, this, std::placeholders::_1, std::placeholders::_2));
   reset_srv_ = nh_->create_service<std_srvs::srv::Empty>("reset", std::bind(&TurtleFrame::resetCallback, this, std::placeholders::_1, std::placeholders::_2));
-  spawn_srv_ = nh_->create_service<turtlesim::srv::Spawn>("spawn", std::bind(&TurtleFrame::spawnCallback, this, std::placeholders::_1, std::placeholders::_2));
-  kill_srv_ = nh_->create_service<turtlesim::srv::Kill>("kill", std::bind(&TurtleFrame::killCallback, this, std::placeholders::_1, std::placeholders::_2));
+  spawn_srv_ = nh_->create_service<omni_turtlesim::srv::Spawn>("spawn", std::bind(&TurtleFrame::spawnCallback, this, std::placeholders::_1, std::placeholders::_2));
+  kill_srv_ = nh_->create_service<omni_turtlesim::srv::Kill>("kill", std::bind(&TurtleFrame::killCallback, this, std::placeholders::_1, std::placeholders::_2));
 
   rclcpp::QoS qos(rclcpp::KeepLast(100), rmw_qos_profile_sensor_data);
   parameter_event_sub_ = nh_->create_subscription<rcl_interfaces::msg::ParameterEvent>(
@@ -127,7 +127,7 @@ TurtleFrame::~TurtleFrame()
   delete update_timer_;
 }
 
-bool TurtleFrame::spawnCallback(const turtlesim::srv::Spawn::Request::SharedPtr req, turtlesim::srv::Spawn::Response::SharedPtr res)
+bool TurtleFrame::spawnCallback(const omni_turtlesim::srv::Spawn::Request::SharedPtr req, omni_turtlesim::srv::Spawn::Response::SharedPtr res)
 {
   std::string name = spawnTurtle(req->name, req->x, req->y, req->theta);
   if (name.empty())
@@ -141,7 +141,7 @@ bool TurtleFrame::spawnCallback(const turtlesim::srv::Spawn::Request::SharedPtr 
   return true;
 }
 
-bool TurtleFrame::killCallback(const turtlesim::srv::Kill::Request::SharedPtr req, turtlesim::srv::Kill::Response::SharedPtr)
+bool TurtleFrame::killCallback(const omni_turtlesim::srv::Kill::Request::SharedPtr req, omni_turtlesim::srv::Kill::Response::SharedPtr)
 {
   M_Turtle::iterator it = turtles_.find(req->name);
   if (it == turtles_.end())
