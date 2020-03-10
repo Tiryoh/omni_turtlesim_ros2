@@ -4,4 +4,4 @@ ROS 2 package of omni_turtlesim
 
 omni-directional version of turtlesim
 
-![Image from Gyazo](https://i.gyazo.com/e3309f79d5332a6e2fc50c6eb16c73a5.gif)
+![Image from Gyazo](https://i.gyazo.com/974e67e38431b10c9985c9b033eed577.gif)
