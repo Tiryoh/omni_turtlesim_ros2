@@ -1,5 +1,7 @@
 # omni_turtlesim
 
+![industrial_ci](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci/badge.svg?branch=master)
+
 ROS 2 package of omni_turtlesim
 
 omni-directional version of turtlesim
