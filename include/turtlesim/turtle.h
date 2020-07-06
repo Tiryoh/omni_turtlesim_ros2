@@ -81,7 +81,8 @@ private:
   QPointF pos_;
   qreal orient_;
 
-  qreal lin_vel_;
+  qreal lin_vel_x_;
+  qreal lin_vel_y_;
   qreal ang_vel_;
   bool pen_on_;
   QPen pen_;
@@ -105,16 +106,18 @@ private:
 
   struct TeleportRequest
   {
-    TeleportRequest(float x, float y, qreal _theta, qreal _linear, bool _relative)
+    TeleportRequest(float x, float y, qreal _theta, qreal _linear_x, qreal _linear_y, bool _relative)
     : pos(x, y)
     , theta(_theta)
-    , linear(_linear)
+    , linear_x(_linear_x)
+    , linear_y(_linear_y)
     , relative(_relative)
     {}
 
     QPointF pos;
     qreal theta;
-    qreal linear;
+    qreal linear_x;
+    qreal linear_y;
     bool relative;
   };
   typedef std::vector<TeleportRequest> V_TeleportRequest;
