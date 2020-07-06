@@ -38,7 +38,7 @@
 #define DEFAULT_PEN_G 0xb8
 #define DEFAULT_PEN_B 0xff
 
-namespace turtlesim
+namespace omni_turtlesim
 {
 
 static float normalizeAngle(float angle)
@@ -60,15 +60,15 @@ Turtle::Turtle(rclcpp::Node::SharedPtr& nh, const std::string& real_name, const 
 
   rclcpp::QoS qos(rclcpp::KeepLast(7));
   velocity_sub_ = nh_->create_subscription<geometry_msgs::msg::Twist>(real_name + "/cmd_vel", qos, std::bind(&Turtle::velocityCallback, this, std::placeholders::_1));
-  pose_pub_ = nh_->create_publisher<turtlesim::msg::Pose>(real_name + "/pose", qos);
-  color_pub_ = nh_->create_publisher<turtlesim::msg::Color>(real_name + "/color_sensor", qos);
-  set_pen_srv_ = nh_->create_service<turtlesim::srv::SetPen>(real_name + "/set_pen", std::bind(&Turtle::setPenCallback, this, std::placeholders::_1, std::placeholders::_2));
-  teleport_relative_srv_ = nh_->create_service<turtlesim::srv::TeleportRelative>(real_name + "/teleport_relative", std::bind(&Turtle::teleportRelativeCallback, this, std::placeholders::_1, std::placeholders::_2));
-  teleport_absolute_srv_ = nh_->create_service<turtlesim::srv::TeleportAbsolute>(real_name + "/teleport_absolute", std::bind(&Turtle::teleportAbsoluteCallback, this, std::placeholders::_1, std::placeholders::_2));
-  rotate_absolute_action_server_ = rclcpp_action::create_server<turtlesim::action::RotateAbsolute>(
+  pose_pub_ = nh_->create_publisher<omni_turtlesim::msg::Pose>(real_name + "/pose", qos);
+  color_pub_ = nh_->create_publisher<omni_turtlesim::msg::Color>(real_name + "/color_sensor", qos);
+  set_pen_srv_ = nh_->create_service<omni_turtlesim::srv::SetPen>(real_name + "/set_pen", std::bind(&Turtle::setPenCallback, this, std::placeholders::_1, std::placeholders::_2));
+  teleport_relative_srv_ = nh_->create_service<omni_turtlesim::srv::TeleportRelative>(real_name + "/teleport_relative", std::bind(&Turtle::teleportRelativeCallback, this, std::placeholders::_1, std::placeholders::_2));
+  teleport_absolute_srv_ = nh_->create_service<omni_turtlesim::srv::TeleportAbsolute>(real_name + "/teleport_absolute", std::bind(&Turtle::teleportAbsoluteCallback, this, std::placeholders::_1, std::placeholders::_2));
+  rotate_absolute_action_server_ = rclcpp_action::create_server<omni_turtlesim::action::RotateAbsolute>(
     nh,
     real_name + "/rotate_absolute",
-    [](const rclcpp_action::GoalUUID &, std::shared_ptr<const turtlesim::action::RotateAbsolute::Goal>)
+    [](const rclcpp_action::GoalUUID &, std::shared_ptr<const omni_turtlesim::action::RotateAbsolute::Goal>)
     {
       // Accept all goals
       return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
@@ -102,7 +102,7 @@ void Turtle::velocityCallback(const geometry_msgs::msg::Twist::SharedPtr vel)
   }
 }
 
-bool Turtle::setPenCallback(const turtlesim::srv::SetPen::Request::SharedPtr req, turtlesim::srv::SetPen::Response::SharedPtr)
+bool Turtle::setPenCallback(const omni_turtlesim::srv::SetPen::Request::SharedPtr req, omni_turtlesim::srv::SetPen::Response::SharedPtr)
 {
   pen_on_ = !req->off;
   if (req->off)
@@ -120,13 +120,13 @@ bool Turtle::setPenCallback(const turtlesim::srv::SetPen::Request::SharedPtr req
   return true;
 }
 
-bool Turtle::teleportRelativeCallback(const turtlesim::srv::TeleportRelative::Request::SharedPtr req, turtlesim::srv::TeleportRelative::Response::SharedPtr)
+bool Turtle::teleportRelativeCallback(const omni_turtlesim::srv::TeleportRelative::Request::SharedPtr req, omni_turtlesim::srv::TeleportRelative::Response::SharedPtr)
 {
   teleport_requests_.push_back(TeleportRequest(0, 0, req->angular, req->linear, true));
   return true;
 }
 
-bool Turtle::teleportAbsoluteCallback(const turtlesim::srv::TeleportAbsolute::Request::SharedPtr req, turtlesim::srv::TeleportAbsolute::Response::SharedPtr)
+bool Turtle::teleportAbsoluteCallback(const omni_turtlesim::srv::TeleportAbsolute::Request::SharedPtr req, omni_turtlesim::srv::TeleportAbsolute::Response::SharedPtr)
 {
   teleport_requests_.push_back(TeleportRequest(req->x, req->y, req->theta, 0, false));
   return true;
@@ -141,8 +141,8 @@ void Turtle::rotateAbsoluteAcceptCallback(const std::shared_ptr<RotateAbsoluteGo
     rotate_absolute_goal_handle_->abort(rotate_absolute_result_);
   }
   rotate_absolute_goal_handle_ = goal_handle;
-  rotate_absolute_feedback_.reset(new turtlesim::action::RotateAbsolute::Feedback);
-  rotate_absolute_result_.reset(new turtlesim::action::RotateAbsolute::Result);
+  rotate_absolute_feedback_.reset(new omni_turtlesim::action::RotateAbsolute::Feedback);
+  rotate_absolute_result_.reset(new omni_turtlesim::action::RotateAbsolute::Result);
   rotate_absolute_start_orient_ = orient_;
 }
 
@@ -256,7 +256,7 @@ bool Turtle::update(double dt, QPainter& path_painter, const QImage& path_image,
   pos_.setY(std::min(std::max(static_cast<double>(pos_.y()), 0.0), static_cast<double>(canvas_height)));
 
   // Publish pose of the turtle
-  auto p = std::make_unique<turtlesim::msg::Pose>();
+  auto p = std::make_unique<omni_turtlesim::msg::Pose>();
   p->x = pos_.x();
   p->y = canvas_height - pos_.y();
   p->theta = orient_;
@@ -266,7 +266,7 @@ bool Turtle::update(double dt, QPainter& path_painter, const QImage& path_image,
 
   // Figure out (and publish) the color underneath the turtle
   {
-    auto color = std::make_unique<turtlesim::msg::Color>();
+    auto color = std::make_unique<omni_turtlesim::msg::Color>();
     QRgb pixel = path_image.pixel((pos_ * meter_).toPoint());
     color->r = qRed(pixel);
     color->g = qGreen(pixel);

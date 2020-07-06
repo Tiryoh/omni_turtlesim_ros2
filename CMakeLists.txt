@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(turtlesim)
+project(omni_turtlesim)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
@@ -33,19 +33,19 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 set(dependencies "ament_index_cpp" "geometry_msgs" "rclcpp" "rclcpp_action" "std_msgs" "std_srvs")
 
-set(turtlesim_node_SRCS
+set(omni_turtlesim_node_SRCS
   src/turtlesim.cpp
   src/turtle.cpp
   src/turtle_frame.cpp
 )
-set(turtlesim_node_HDRS
+set(omni_turtlesim_node_HDRS
   include/turtlesim/turtle_frame.h
 )
 
-qt5_wrap_cpp(turtlesim_node_MOCS ${turtlesim_node_HDRS})
+qt5_wrap_cpp(omni_turtlesim_node_MOCS ${omni_turtlesim_node_HDRS})
 
 
-add_executable(turtlesim_node ${turtlesim_node_SRCS} ${turtlesim_node_MOCS})
+add_executable(turtlesim_node ${omni_turtlesim_node_SRCS} ${omni_turtlesim_node_MOCS})
 target_link_libraries(turtlesim_node Qt5::Widgets)
 ament_target_dependencies(turtlesim_node ${dependencies})
 rosidl_target_interfaces(turtlesim_node ${PROJECT_NAME} "rosidl_typesupport_cpp")
