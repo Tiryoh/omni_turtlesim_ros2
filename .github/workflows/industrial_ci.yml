@@ -1,14 +1,16 @@
-name: industrial_ci
-
 on:
   push:
+    branches:
+      - dashing-devel
     paths-ignore:
-    - 'docs/**'
-    - '**.md'
+      - 'docs/**'
+      - '**.md'
   pull_request:
+    branches:
+      - dashing-devel
     paths-ignore:
-    - 'docs/**'
-    - '**.md'
+      - 'docs/**'
+      - '**.md'
   schedule:
     - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
 
