@@ -36,12 +36,12 @@
 # include <rclcpp_action/rclcpp_action.hpp>
 
 # include <geometry_msgs/msg/twist.hpp>
-# include <turtlesim/action/rotate_absolute.hpp>
-# include <turtlesim/msg/color.hpp>
-# include <turtlesim/msg/pose.hpp>
-# include <turtlesim/srv/set_pen.hpp>
-# include <turtlesim/srv/teleport_absolute.hpp>
-# include <turtlesim/srv/teleport_relative.hpp>
+# include <omni_turtlesim/action/rotate_absolute.hpp>
+# include <omni_turtlesim/msg/color.hpp>
+# include <omni_turtlesim/msg/pose.hpp>
+# include <omni_turtlesim/srv/set_pen.hpp>
+# include <omni_turtlesim/srv/teleport_absolute.hpp>
+# include <omni_turtlesim/srv/teleport_relative.hpp>
 #endif
 
 #include <QImage>
@@ -52,13 +52,13 @@
 #define PI 3.14159265
 #define TWO_PI 2.0 * PI
 
-namespace turtlesim
+namespace omni_turtlesim
 {
 
 class Turtle
 {
 public:
-  using RotateAbsoluteGoalHandle = rclcpp_action::ServerGoalHandle<turtlesim::action::RotateAbsolute>;
+  using RotateAbsoluteGoalHandle = rclcpp_action::ServerGoalHandle<omni_turtlesim::action::RotateAbsolute>;
 
   Turtle(rclcpp::Node::SharedPtr& nh, const std::string& real_name, const QImage& turtle_image, const QPointF& pos, float orient);
 
@@ -66,9 +66,9 @@ public:
   void paint(QPainter &painter);
 private:
   void velocityCallback(const geometry_msgs::msg::Twist::SharedPtr vel);
-  bool setPenCallback(const turtlesim::srv::SetPen::Request::SharedPtr, turtlesim::srv::SetPen::Response::SharedPtr);
-  bool teleportRelativeCallback(const turtlesim::srv::TeleportRelative::Request::SharedPtr, turtlesim::srv::TeleportRelative::Response::SharedPtr);
-  bool teleportAbsoluteCallback(const turtlesim::srv::TeleportAbsolute::Request::SharedPtr, turtlesim::srv::TeleportAbsolute::Response::SharedPtr);
+  bool setPenCallback(const omni_turtlesim::srv::SetPen::Request::SharedPtr, omni_turtlesim::srv::SetPen::Response::SharedPtr);
+  bool teleportRelativeCallback(const omni_turtlesim::srv::TeleportRelative::Request::SharedPtr, omni_turtlesim::srv::TeleportRelative::Response::SharedPtr);
+  bool teleportAbsoluteCallback(const omni_turtlesim::srv::TeleportAbsolute::Request::SharedPtr, omni_turtlesim::srv::TeleportAbsolute::Response::SharedPtr);
   void rotateAbsoluteAcceptCallback(const std::shared_ptr<RotateAbsoluteGoalHandle>);
 
   void rotateImage();
@@ -87,16 +87,16 @@ private:
   QPen pen_;
 
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr velocity_sub_;
-  rclcpp::Publisher<turtlesim::msg::Pose>::SharedPtr pose_pub_;
-  rclcpp::Publisher<turtlesim::msg::Color>::SharedPtr color_pub_;
-  rclcpp::Service<turtlesim::srv::SetPen>::SharedPtr set_pen_srv_;
-  rclcpp::Service<turtlesim::srv::TeleportRelative>::SharedPtr teleport_relative_srv_;
-  rclcpp::Service<turtlesim::srv::TeleportAbsolute>::SharedPtr teleport_absolute_srv_;
-  rclcpp_action::Server<turtlesim::action::RotateAbsolute>::SharedPtr rotate_absolute_action_server_;
+  rclcpp::Publisher<omni_turtlesim::msg::Pose>::SharedPtr pose_pub_;
+  rclcpp::Publisher<omni_turtlesim::msg::Color>::SharedPtr color_pub_;
+  rclcpp::Service<omni_turtlesim::srv::SetPen>::SharedPtr set_pen_srv_;
+  rclcpp::Service<omni_turtlesim::srv::TeleportRelative>::SharedPtr teleport_relative_srv_;
+  rclcpp::Service<omni_turtlesim::srv::TeleportAbsolute>::SharedPtr teleport_absolute_srv_;
+  rclcpp_action::Server<omni_turtlesim::action::RotateAbsolute>::SharedPtr rotate_absolute_action_server_;
 
   std::shared_ptr<RotateAbsoluteGoalHandle> rotate_absolute_goal_handle_;
-  std::shared_ptr<turtlesim::action::RotateAbsolute::Feedback> rotate_absolute_feedback_;
-  std::shared_ptr<turtlesim::action::RotateAbsolute::Result> rotate_absolute_result_;
+  std::shared_ptr<omni_turtlesim::action::RotateAbsolute::Feedback> rotate_absolute_feedback_;
+  std::shared_ptr<omni_turtlesim::action::RotateAbsolute::Result> rotate_absolute_result_;
   qreal rotate_absolute_start_orient_;
 
   rclcpp::Time last_command_time_;
