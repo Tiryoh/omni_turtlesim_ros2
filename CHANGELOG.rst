@@ -2,8 +2,8 @@
 Changelog for package turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.0 (2020-07-16)
+------------------
 * docs: Update CI badge
 * chore: Specify the license
 * feat: Update package description
