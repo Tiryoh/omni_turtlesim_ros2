@@ -2,6 +2,26 @@
 Changelog for package turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* docs: Update CI badge
+* chore: Specify the license
+* feat: Update package description
+* docs: Add usage in README
+* fix: Rename package name in launch
+* ci: Limit target branch
+* docs: Update status badge
+* Add industrial_ci test settings (`#2 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/2>`_)
+  * test: Add industrial_ci test settings
+  * docs: Add industrial_ci status badge
+* docs: Add README (`#1 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/1>`_)
+  * docs: Add README
+  * docs: Update description
+  * docs: Use clear animation-gif
+* feat: Add omni control
+* feat: Rename package
+* Contributors: Daisuke Sato, Tiryoh
+
 1.0.2 (2019-10-23)
 ------------------
 * separate background color from drawn paths, trigger repaint on parameter changes (`#75 <https://github.com/ros/ros_tutorials/issues/75>`_)
