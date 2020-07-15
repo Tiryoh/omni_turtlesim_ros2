@@ -1,6 +1,8 @@
 # omni_turtlesim
 
-[![industrial_ci](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci/badge.svg?branch=master)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3Aindustrial_ci)
+| dashing |
+| ---- |
+| [![.github/workflows/industrial_ci.yml](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/.github/workflows/industrial_ci.yml/badge.svg?branch=dashing-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A.github%2Fworkflows%2Findustrial_ci.yml+branch%3Adashing-devel) |
 
 ROS 2 package of omni_turtlesim
 
