@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package turtlesim
+Changelog for package omni_turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.0.0 (2020-07-16)
@@ -11,13 +11,8 @@ Changelog for package turtlesim
 * fix: Rename package name in launch
 * ci: Limit target branch
 * docs: Update status badge
-* Add industrial_ci test settings (`#2 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/2>`_)
-  * test: Add industrial_ci test settings
-  * docs: Add industrial_ci status badge
+* ci: Add industrial_ci test settings (`#2 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/2>`_)
 * docs: Add README (`#1 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/1>`_)
-  * docs: Add README
-  * docs: Update description
-  * docs: Use clear animation-gif
 * feat: Add omni control
 * feat: Rename package
 * Contributors: Daisuke Sato, Tiryoh
