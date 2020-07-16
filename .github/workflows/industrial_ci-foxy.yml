@@ -1,4 +1,4 @@
-name: industrial_ci
+name: industrial_ci (foxy)
 
 on:
   push:
