@@ -1,8 +1,8 @@
 # omni_turtlesim
 
-| foxy |
+| foxy-devel |
 | ---- |
-| [![.github/workflows/industrial_ci.yml](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/.github/workflows/industrial_ci.yml/badge.svg?branch=foxy-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A.github%2Fworkflows%2Findustrial_ci.yml+branch%3Afoxy-devel) |
+| [![industrial_ci (foxy)](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci%20(foxy)/badge.svg?branch=foxy-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A%22industrial_ci+%28foxy%29%22+branch%3Afoxy-devel) |
 
 ROS 2 package of omni_turtlesim
 
