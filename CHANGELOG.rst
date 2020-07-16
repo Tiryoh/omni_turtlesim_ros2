@@ -1,6 +1,21 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package turtlesim
+Changelog for package omni_turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2.0.0 (2020-07-16)
+------------------
+* docs: Update CI badge
+* chore: Specify the license
+* feat: Update package description
+* docs: Add usage in README
+* fix: Rename package name in launch
+* ci: Limit target branch
+* docs: Update status badge
+* ci: Add industrial_ci test settings (`#2 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/2>`_)
+* docs: Add README (`#1 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/1>`_)
+* feat: Add omni control
+* feat: Rename package
+* Contributors: Daisuke Sato, Tiryoh
 
 1.0.2 (2019-10-23)
 ------------------
