@@ -2,8 +2,8 @@
 Changelog for package turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.1.0 (2020-07-16)
+------------------
 * docs: Add README and LICENSE (`#14 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/14>`_)
 * feat: Update package description (`#13 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/13>`_)
 * fix: Rename package name in launch (`#11 <https://github.com/Tiryoh/omni_turtlesim_ros2/issues/11>`_)
