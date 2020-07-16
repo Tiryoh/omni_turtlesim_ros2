@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package turtlesim
+Changelog for package omni_turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.1.0 (2020-07-16)
