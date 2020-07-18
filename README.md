@@ -1,8 +1,8 @@
 # omni_turtlesim
 
-| foxy-devel |
-| ---- |
-| [![industrial_ci (foxy)](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci%20(foxy)/badge.svg?branch=foxy-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A%22industrial_ci+%28foxy%29%22+branch%3Afoxy-devel) |
+| dashing-devel | eloquent-devel | foxy-devel |
+| ---- | ---- | ---- |
+| [![industrial_ci (dashing)](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci%20(dashing)/badge.svg?branch=dashing-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A%22industrial_ci+%28dashing%29%22+branch%3Adashing-devel) | [![industrial_ci (eloquent)](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci%20(eloquent)/badge.svg?branch=eloquent-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A%22industrial_ci+%28eloquent%29%22+branch%3Aeloquent-devel) | [![industrial_ci (foxy)](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci%20(foxy)/badge.svg?branch=foxy-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A%22industrial_ci+%28foxy%29%22+branch%3Afoxy-devel) |
 
 ROS 2 package of omni_turtlesim
 
