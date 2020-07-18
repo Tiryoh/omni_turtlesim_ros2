@@ -1,8 +1,8 @@
 # omni_turtlesim
 
-| eloquent |
-| ---- |
-| [![.github/workflows/industrial_ci.yml](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/.github/workflows/industrial_ci.yml/badge.svg?branch=eloquent-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A.github%2Fworkflows%2Findustrial_ci.yml+branch%3Aeloquent-devel) |
+| dashing-devel | eloquent-devel |
+| ---- | ---- |
+| [![industrial_ci (dashing)](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci%20(dashing)/badge.svg?branch=dashing-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A%22industrial_ci+%28dashing%29%22+branch%3Adashing-devel) | [![industrial_ci (eloquent)](https://github.com/Tiryoh/omni_turtlesim_ros2/workflows/industrial_ci%20(eloquent)/badge.svg?branch=eloquent-devel)](https://github.com/Tiryoh/omni_turtlesim_ros2/actions?query=workflow%3A%22industrial_ci+%28eloquent%29%22+branch%3Aeloquent-devel) |
 
 ROS 2 package of omni_turtlesim
 
