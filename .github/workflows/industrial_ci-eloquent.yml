@@ -1,3 +1,5 @@
+name: industrial_ci (eloquent)
+
 on:
   push:
     branches:
