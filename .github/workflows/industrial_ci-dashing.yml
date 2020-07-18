@@ -1,3 +1,5 @@
+name: industrial_ci (dashing)
+
 on:
   push:
     branches:
